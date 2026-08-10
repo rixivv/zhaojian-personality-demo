@@ -5541,15 +5541,15 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
   z-index:32;
   left:50%;
   bottom:90px;
-  padding:7px 14px;
-  border:.5px solid rgba(255,255,255,.12);
-  border-radius:999px;
-  background:rgba(18,22,30,.82);
-  box-shadow:0 6px 20px rgba(0,0,0,.24);
-  color:rgba(255,255,255,.9);
+  padding:8px 16px;
+  border:0;
+  border-radius:12px;
+  background:rgba(0,0,0,.75);
+  box-shadow:none;
+  color:#fff;
   font-family:"PingFang SC","PingFangSC-Regular",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
-  font-size:12px;
-  line-height:18px;
+  font-size:13px;
+  line-height:22px;
   white-space:nowrap;
   opacity:0;
   pointer-events:none;
@@ -5582,9 +5582,13 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
 .personality-summary-dialog__actions{position:absolute;left:11.5px;top:15px;display:flex;justify-content:flex-end;gap:8px;width:327px;height:29px}
 .personality-summary-dialog__actions button{display:grid;place-items:center;width:28px;height:28px;padding:0;border:0;background:transparent;cursor:pointer}
 .personality-summary-dialog__actions img{display:block;width:16px;height:16px}
+.personality-summary-refresh-icon{position:relative;display:block;overflow:hidden;width:16px;height:16px}
+.personality-summary-refresh-icon img{position:absolute;left:1.75px;top:1.75px;width:12.5px;height:12.5px}
+.personality-summary-dialog__actions #personalitySummaryRefresh.is-refreshing .personality-summary-refresh-icon{animation:personality-summary-refresh-turn .36s ease}
 .personality-summary-download-icon{position:relative;display:block;overflow:hidden;width:16px;height:16px}
 .personality-summary-download-icon img{position:absolute;left:.916px;top:.917px;width:14.086px;height:13.641px}
 .personality-summary-dialog__actions .personality-summary-dialog__close img{width:10.5px;height:10.5px}
+@keyframes personality-summary-refresh-turn{to{transform:rotate(180deg)}}
 .personality-summary-dialog>h2{position:absolute;left:16px;right:16px;top:55.5px;margin:0;color:rgba(255,255,255,.92);font-size:20px;font-weight:500;line-height:22px;text-align:center}
 .personality-summary-dialog__intro{position:absolute;left:16px;top:97.5px;width:319px}
 .personality-summary-dialog__intro small{display:block;margin-bottom:8px;color:rgba(255,255,255,.6);font-size:10px;line-height:normal}

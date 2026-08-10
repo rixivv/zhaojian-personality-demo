@@ -36911,6 +36911,7 @@ setTimeout(()=>{
   <div class="personality-summary-dialog-layer" id="personalitySummaryDialog" aria-hidden="true">
     <section class="personality-summary-dialog" role="dialog" aria-modal="true" aria-labelledby="personalitySummaryTitle" tabindex="-1">
       <div class="personality-summary-dialog__actions">
+        <button id="personalitySummaryRefresh" type="button" aria-label="刷新我的总结"><span class="personality-summary-refresh-icon"><img src="assets/personality-summary-refresh.svg" alt=""></span></button>
         <button id="personalitySummaryDownload" type="button" aria-label="下载我的总结"><span class="personality-summary-download-icon"><img src="assets/personality-summary-download.svg" alt=""></span></button>
         <button class="personality-summary-dialog__close" type="button" aria-label="关闭我的总结"><img src="assets/summary-close.svg" alt=""></button>
       </div>
@@ -36962,9 +36963,20 @@ setTimeout(()=>{
   const summaryDialogLayer=document.getElementById('personalitySummaryDialog');
   const summaryDialog=summaryDialogLayer?.querySelector('.personality-summary-dialog');
   const summaryDialogClose=summaryDialogLayer?.querySelector('.personality-summary-dialog__close');
+  const summaryRefresh=document.getElementById('personalitySummaryRefresh');
   const summaryDownload=document.getElementById('personalitySummaryDownload');
   const summaryDownloadToast=document.getElementById('personalitySummaryDownloadToast');
   let summaryDownloadToastTimer=0;
+  const showSummaryToast=(message)=>{
+    if(!summaryDownloadToast) return;
+    window.clearTimeout(summaryDownloadToastTimer);
+    summaryDownloadToast.textContent=message;
+    summaryDownloadToast.classList.remove('is-visible');
+    requestAnimationFrame(()=>{
+      summaryDownloadToast.classList.add('is-visible');
+      summaryDownloadToastTimer=window.setTimeout(()=>summaryDownloadToast.classList.remove('is-visible'),1800);
+    });
+  };
   const closeButtons=layer?.querySelectorAll('.personality-report-backdrop,.personality-report-dialog__close')||[];
   const reports={
     relationship:{
@@ -37050,6 +37062,12 @@ setTimeout(()=>{
   summaryDialogLayer?.addEventListener('click',(event)=>{
     if(event.target===summaryDialogLayer) closeSummary();
   });
+  summaryRefresh?.addEventListener('click',()=>{
+    summaryRefresh.classList.remove('is-refreshing');
+    requestAnimationFrame(()=>summaryRefresh.classList.add('is-refreshing'));
+    window.setTimeout(()=>summaryRefresh.classList.remove('is-refreshing'),360);
+    showSummaryToast('暂未形成新的总结');
+  });
   summaryDownload?.addEventListener('click',()=>{
     const link=document.createElement('a');
     link.href=window.PERSONALITY_SUMMARY_CARD_DATA_URL||'assets/personality-summary-card-hd.png';
@@ -37057,14 +37075,7 @@ setTimeout(()=>{
     document.body.appendChild(link);
     link.click();
     link.remove();
-    if(summaryDownloadToast){
-      window.clearTimeout(summaryDownloadToastTimer);
-      summaryDownloadToast.classList.remove('is-visible');
-      requestAnimationFrame(()=>{
-        summaryDownloadToast.classList.add('is-visible');
-        summaryDownloadToastTimer=window.setTimeout(()=>summaryDownloadToast.classList.remove('is-visible'),1800);
-      });
-    }
+    showSummaryToast('图片已下载');
   });
   document.addEventListener('keydown',(event)=>{
     if(event.key==='Escape'&&summaryDialogLayer?.classList.contains('is-open')) closeSummary();
