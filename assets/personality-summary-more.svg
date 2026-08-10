@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="28/icon_more_28">
+<g id="Vector 8904" filter="url(#filter0_f_0_4)">
+<path d="M8.08155 2L6.65161 5.10341L3.61601 3.80829L5.75472 6.78952L1 9.83063L6.1871 8.35344L4.88679 12L7.54155 8.62224L10.4717 11.3492L9.04112 8.11537L12.582 8.86272L9.612 6.78952L13 4.6603L8.70882 5.27447L8.08155 2Z" fill="white"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_0_4" x="0" y="1" width="14" height="12" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="0.5" result="effect1_foregroundBlur_0_4"/>
+</filter>
+<g id="stroke0_0_4" data-figma-scatter-ref="stroke0_0_4_ref" data-figma-scatter="f0.25_w0_aj30_sj0_r0_s0_sw1.196">
+</g>
+<path id="stroke0_0_4_ref" d="M6.65161 5.10341L8.08155 2L8.70882 5.27447L13 4.6603L9.612 6.78952L12.582 8.86272L9.04112 8.11537L10.4717 11.3492L7.54155 8.62224L4.88679 12L6.1871 8.35344L1 9.83063L5.75472 6.78952L3.61601 3.80829L6.65161 5.10341Z"/>
+</defs>
+</svg>

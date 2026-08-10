@@ -1,0 +1,7 @@
+{
+  "name": "livo-zhaojian-standalone-demo",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  }
+}
