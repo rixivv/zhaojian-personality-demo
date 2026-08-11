@@ -6,7 +6,7 @@
 <title>Livo · 照见我 Demo</title>
 <meta name="theme-color" content="#070910">
 <link rel="preload" href="assets/personality-report-static.png" as="image" fetchpriority="high">
-<link rel="preload" href="assets/personality-report-scheme-3.png" as="image">
+<link rel="preload" href="assets/personality-summary-page-background.png" as="image">
 <style>
 html,body{margin:0;min-height:100%;background:#070910}
 </style>
@@ -16,15 +16,29 @@ html,body{margin:0;min-height:100%;background:#070910}
 <section class="personality-report-demo" aria-label="关于我的人格测试报告">
   <img class="personality-report-demo__screen personality-report-demo__screen--one" src="assets/personality-report-static.png" alt="照见我人格报告方案一">
   <img class="personality-report-demo__screen personality-report-demo__screen--two" src="assets/personality-report-scheme-2.png" alt="照见我人格报告方案二">
-  <img class="personality-report-demo__screen personality-report-demo__screen--three" src="assets/personality-report-scheme-3.png" alt="照见我完整总结二级页方案三">
-  <div class="personality-scheme-three-motion" aria-hidden="true">
-    <div class="personality-scheme-three-object personality-scheme-three-object--book"><span class="eraser"></span><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-book.png" alt=""></div>
-    <div class="personality-scheme-three-object personality-scheme-three-object--pen"><span class="eraser"></span><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-pen.png" alt=""></div>
-    <div class="personality-scheme-three-object personality-scheme-three-object--lamp"><span class="eraser"></span><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-lamp.png" alt=""></div>
+  <div class="personality-scheme-three-page" aria-label="我的完整总结二级页">
+    <div class="personality-scheme-three-background" aria-hidden="true"></div>
+    <div class="personality-scheme-three-status" aria-hidden="true"><b>6:16</b><span class="cellular">▮▮▮▮</span><span class="wifi">⌁</span><span class="battery"></span></div>
+    <div class="personality-scheme-three-copy">
+      <h2>H i，立夏</h2>
+      <small>在你来到蒂利亚之东的 <strong>110</strong> 天中：</small>
+      <div class="personality-scheme-three-paragraphs">
+        <p>你似乎总对那些未说完的话更有耐心。<br>你和 <strong>罗兰</strong> 聊了 <strong>38</strong> 次，却很少追问一个确定的答案；<br>你愿意让沉默多停留一会儿，<br>也愿意相信，一段关系会在自己的时间里慢慢显露。</p>
+        <p>你对这个世界说过一次<strong>“我有点 emo”</strong>，<br>后来，窗外的雨下了整整 <strong>3</strong> 天。<br>而第 <strong>87</strong> 天，你在雨声里聊到 <strong>02:17</strong> 点。<br>你未必习惯袒露自己，却会为真正重要的人留到很晚。</p>
+      </div>
+    </div>
+    <div class="personality-scheme-three-kicker">这些故事，照见了这样的我：</div>
+    <div class="personality-scheme-three-motion">
+      <img class="personality-scheme-three-path personality-scheme-three-path--a" src="assets/summary-path-a.svg" alt="">
+      <img class="personality-scheme-three-path personality-scheme-three-path--b" src="assets/summary-path-b.svg" alt="">
+      <article class="personality-scheme-three-object personality-scheme-three-object--book"><div><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-book.png" alt="未写完的书"></div><h3><span>未写完的</span><strong>书</strong></h3><p>你不急着定义，也不轻易离场</p></article>
+      <article class="personality-scheme-three-object personality-scheme-three-object--pen"><div><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-pen.png" alt="停在句点前的钢笔"></div><h3><span>停在句点前的</span><strong>钢笔</strong></h3><p>你慎重落笔，也保留余地</p></article>
+      <article class="personality-scheme-three-object personality-scheme-three-object--lamp"><div><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-lamp.png" alt="深夜仍亮着的台灯"></div><h3><span>深夜仍亮着的</span><strong>台灯</strong></h3><p>你不说挽留，却愿意等候</p></article>
+    </div>
   </div>
-  <button class="personality-scheme-three-action personality-scheme-three-back" id="personalitySchemeThreeBack" type="button" aria-label="返回方案二"></button>
-  <button class="personality-scheme-three-action personality-scheme-three-refresh" id="personalitySchemeThreeRefresh" type="button" aria-label="刷新完整总结"></button>
-  <button class="personality-scheme-three-action personality-scheme-three-download" id="personalitySchemeThreeDownload" type="button" aria-label="下载完整总结"></button>
+  <button class="personality-scheme-three-action personality-scheme-three-back" id="personalitySchemeThreeBack" type="button" aria-label="返回方案二"><span aria-hidden="true">‹</span><b>我的总结</b></button>
+  <button class="personality-scheme-three-action personality-scheme-three-refresh" id="personalitySchemeThreeRefresh" type="button" aria-label="刷新完整总结"><img src="assets/personality-summary-refresh.svg" alt=""></button>
+  <button class="personality-scheme-three-action personality-scheme-three-download" id="personalitySchemeThreeDownload" type="button" aria-label="下载完整总结"><img src="assets/personality-summary-download.svg" alt=""></button>
   <button class="personality-report-hotspot hotspot-top-left" type="button" aria-label="查看关系模式报告" data-report-hotspot="relationship"></button>
   <button class="personality-report-hotspot hotspot-top-right" type="button" aria-label="查看选择倾向报告" data-report-hotspot="choice"></button>
   <button class="personality-report-hotspot hotspot-bottom-left" type="button" aria-label="查看自我表达报告" data-report-hotspot="expression"></button>
@@ -225,7 +239,15 @@ html,body{margin:0;min-height:100%;background:#070910}
   });
   schemeThreeBack?.addEventListener('click',()=>document.querySelector('[data-personality-scheme="2"]')?.click());
   schemeThreeRefresh?.addEventListener('click',()=>showSummaryToast('暂未形成新的总结'));
-  schemeThreeDownload?.addEventListener('click',()=>summaryDownload?.click());
+  schemeThreeDownload?.addEventListener('click',()=>{
+    const link=document.createElement('a');
+    link.href='assets/personality-summary-download.png';
+    link.download='照见首页-完整总结.png';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    showSummaryToast('图片已下载');
+  });
   document.addEventListener('keydown',(event)=>{
     if(event.key==='Escape'&&summaryDialogLayer?.classList.contains('is-open')) closeSummary();
     else if(event.key==='Escape'&&layer?.classList.contains('is-open')) closeReport();

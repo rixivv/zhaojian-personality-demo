@@ -22,31 +22,56 @@ button{font:inherit}
   user-select:none;
   -webkit-user-drag:none;
 }
-.personality-report-demo__screen--two,.personality-report-demo__screen--three{display:none}
+.personality-report-demo__screen--two{display:none}
 .personality-report-demo[data-scheme="2"] .personality-report-demo__screen--one{display:none}
 .personality-report-demo[data-scheme="2"] .personality-report-demo__screen--two{display:block}
 .personality-report-demo[data-scheme="3"] .personality-report-demo__screen--one{display:none}
-.personality-report-demo[data-scheme="3"] .personality-report-demo__screen--three{display:block}
 .personality-report-demo[data-scheme="3"] [data-report-hotspot],
 .personality-report-demo[data-scheme="3"] .personality-report-selection,
 .personality-report-demo[data-scheme="3"] .personality-summary-entry{display:none}
-.personality-scheme-three-action{position:absolute;z-index:5;display:none;padding:0;border:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.personality-scheme-three-page{position:absolute;z-index:1;left:50%;top:50%;display:none;width:375px;height:812px;overflow:hidden;color:#fff;transform:translate(-50%,-50%)}
+.personality-report-demo[data-scheme="3"] .personality-scheme-three-page{display:block}
+.personality-scheme-three-background{position:absolute;inset:0;background:url("assets/personality-summary-page-background.png") center/451px 812px no-repeat}
+.personality-scheme-three-background::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.personality-scheme-three-background::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,16,0) 44%,rgba(23,54,79,.58) 100%)}
+.personality-scheme-three-status{position:absolute;left:0;top:0;width:375px;height:53px;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;font-size:15px;font-weight:600}
+.personality-scheme-three-status b{position:absolute;left:43px;top:18px;line-height:22px}
+.personality-scheme-three-status .cellular{position:absolute;right:70px;top:21px;font-size:7px;letter-spacing:1px;transform:rotate(-90deg)}
+.personality-scheme-three-status .wifi{position:absolute;right:49px;top:15px;font-size:21px;transform:rotate(180deg)}
+.personality-scheme-three-status .battery{position:absolute;right:32px;top:22px;width:18px;height:9px;border:1px solid rgba(255,255,255,.9);border-radius:3px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.86)}
+.personality-scheme-three-copy{position:absolute;left:28px;top:121px;width:319px}
+.personality-scheme-three-copy h2{margin:0;color:rgba(255,255,255,.9);font-size:20px;font-weight:500;line-height:22px}
+.personality-scheme-three-copy small{display:block;margin-top:4px;color:rgba(255,255,255,.9);font-size:10px;font-weight:400;line-height:normal}
+.personality-scheme-three-copy strong{color:#ffc477;font-weight:600}
+.personality-scheme-three-paragraphs{display:flex;flex-direction:column;gap:14px;margin-top:24px;color:rgba(255,255,255,.8);font-size:13px;font-weight:300;line-height:22px}
+.personality-scheme-three-paragraphs p{margin:0}
+.personality-scheme-three-kicker{position:absolute;left:27px;top:431px;color:rgba(255,255,255,.6);font-size:10px;font-weight:400;line-height:normal;opacity:.7}
+.personality-scheme-three-action{position:absolute;z-index:5;display:none;align-items:center;padding:0;border:0;background:transparent;color:rgba(255,255,255,.9);cursor:pointer;-webkit-tap-highlight-color:transparent}
 .personality-report-demo[data-scheme="3"] .personality-scheme-three-action{display:block}
-.personality-scheme-three-back{left:0;top:calc(50% - 353px);width:48px;height:48px}
+.personality-scheme-three-back{left:12px;top:calc(50% - 353px);width:112px;height:48px;text-align:left}
+.personality-scheme-three-back span{display:inline-block;width:24px;font:300 32px/38px -apple-system,BlinkMacSystemFont,sans-serif;vertical-align:middle}
+.personality-scheme-three-back b{margin-left:12px;font-size:14px;font-weight:400;line-height:22px;vertical-align:middle}
 .personality-scheme-three-refresh{right:44px;top:calc(50% - 353px);width:40px;height:48px}
 .personality-scheme-three-download{right:4px;top:calc(50% - 353px);width:40px;height:48px}
+.personality-scheme-three-refresh img,.personality-scheme-three-download img{display:block;width:16px;height:16px;margin:auto}
 .personality-scheme-three-action:focus-visible{outline:1px solid rgba(255,255,255,.88);outline-offset:-8px;border-radius:16px}
-.personality-scheme-three-motion{position:absolute;z-index:4;left:50%;top:50%;display:none;width:375px;height:812px;pointer-events:none;transform:translate(-50%,-50%)}
-.personality-report-demo[data-scheme="3"] .personality-scheme-three-motion{display:block}
-.personality-scheme-three-object{position:absolute;width:76px;height:76px}
-.personality-scheme-three-object .eraser{position:absolute;z-index:0;inset:-12px;border-radius:50%;background:rgba(20,24,32,.12);backdrop-filter:blur(20px) brightness(.72);-webkit-backdrop-filter:blur(20px) brightness(.72)}
+.personality-scheme-three-motion{position:absolute;left:52px;top:454px;width:269px;height:256px;pointer-events:none}
+.personality-scheme-three-path{position:absolute;z-index:0}
+.personality-scheme-three-path--a{left:89px;top:27px;width:106px;height:81.532px}
+.personality-scheme-three-path--b{left:142px;top:177px;width:72px;height:55px}
+.personality-scheme-three-object{position:absolute;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.personality-scheme-three-object>div{position:relative;width:76px;height:76px}
 .personality-scheme-three-object .glow{position:absolute;z-index:1;left:50%;top:50%;width:163.06px;height:163.06px;transform:translate(-50%,-50%)}
 .personality-scheme-three-object .object{position:absolute;z-index:2;object-fit:contain}
-.personality-scheme-three-object--book{left:36px;top:454px}
+.personality-scheme-three-object h3{min-width:100%;margin:0;font-size:13px;font-weight:500;line-height:normal;white-space:nowrap}
+.personality-scheme-three-object h3 span{color:rgba(255,255,255,.8)}
+.personality-scheme-three-object h3 strong{color:#ffc477;font-weight:500}
+.personality-scheme-three-object p{margin:2px 0 0;color:rgba(255,255,255,.6);font-size:10px;font-weight:400;line-height:normal;white-space:nowrap}
+.personality-scheme-three-object--book{left:-16px;top:0}
 .personality-scheme-three-object--book .object{inset:0;width:76px;height:76px}
-.personality-scheme-three-object--pen{left:214px;top:515px}
+.personality-scheme-three-object--pen{left:162px;top:61px}
 .personality-scheme-three-object--pen .object{left:10.06px;top:10.06px;width:55.882px;height:55.882px;transform:scaleX(-1)}
-.personality-scheme-three-object--lamp{left:84px;top:598px}
+.personality-scheme-three-object--lamp{left:32px;top:144px;width:120px}
 .personality-scheme-three-object--lamp .object{left:4.22px;top:4.22px;width:67.556px;height:67.556px}
 .personality-report-hotspot{
   position:absolute;
