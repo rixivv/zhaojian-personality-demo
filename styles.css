@@ -38,7 +38,7 @@ button{font:inherit}
 .personality-scheme-three-status .wifi{position:absolute;left:293.97px;top:23.19px;width:16.35px;height:12.09px}
 .personality-scheme-three-status .battery{position:absolute;right:32.57px;top:22.6px;width:27.228px;height:13px}
 .personality-scheme-three-copy{position:absolute;left:28px;top:121px;width:319px}
-.personality-scheme-three-copy h2{margin:0;color:#fff;opacity:.9;font-size:20px;font-weight:500;line-height:22px}
+.personality-scheme-three-copy h2{margin:0;color:#fff;opacity:1;font-size:20px;font-weight:500;line-height:22px}
 .personality-scheme-three-copy small{display:block;margin-top:4px;color:rgba(255,255,255,.9);font-size:10px;font-weight:400;line-height:normal}
 .personality-scheme-three-copy strong{color:#ffc477;font-weight:600}
 .personality-scheme-three-paragraphs{display:flex;flex-direction:column;gap:14px;margin-top:24px;color:rgba(255,255,255,.8);font-size:13px;font-weight:300;line-height:22px}
