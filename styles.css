@@ -94,7 +94,7 @@ button{font:inherit}
 .personality-book-dialog-label h2 strong{color:#ffc477;font-weight:500}
 .personality-book-dialog-label p{margin:0;color:rgba(255,255,255,.6);font-size:10px;line-height:normal;white-space:nowrap}
 .personality-book-dialog-divider{position:absolute;left:27.5px;top:201.25px;width:231px;height:.5px}
-.personality-book-dialog-copy{position:absolute;left:27.5px;top:225.5px;width:231px;margin:0;color:rgba(255,255,255,.8);font-family:"PingFang SC",sans-serif;font-size:13px;font-style:normal;font-weight:400;line-height:21px;letter-spacing:0;font-synthesis:none}
+.personality-book-dialog-copy{position:absolute;left:27.5px;top:225.5px;width:231px;margin:0;color:rgba(255,255,255,.8);font-family:"PingFang SC",sans-serif;font-size:13px;font-style:normal;font-weight:300;line-height:21px;letter-spacing:0;font-synthesis:none}
 .personality-book-dialog-copy strong{color:#ffc477;font-family:"PingFang SC",sans-serif;font-weight:600;line-height:21px}
 .personality-book-dialog:focus{outline:none}
 .personality-report-hotspot{
