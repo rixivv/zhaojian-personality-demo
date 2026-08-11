@@ -61,6 +61,9 @@ button{font:inherit}
 .personality-scheme-three-path--b{left:142px;top:177px;width:72px;height:55px}
 .personality-scheme-three-object{position:absolute;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
 .personality-scheme-three-object>div{position:relative;width:76px;height:76px}
+.personality-scheme-three-object>div::after{content:"";position:absolute;z-index:3;left:2px;top:27px;width:1.5px;height:1.5px;border-radius:50%;background:rgba(255,231,205,.46);box-shadow:14px -19px 0 rgba(255,255,255,.3),69px -8px 0 rgba(255,221,185,.4),77px 20px 0 rgba(255,255,255,.27),8px 49px 0 rgba(255,221,185,.32),62px 55px 0 rgba(255,255,255,.25);animation:personality-book-dialog-stars 3.8s ease-in-out -.7s infinite}
+.personality-scheme-three-object--pen>div::after{animation-delay:-1.6s}
+.personality-scheme-three-object--lamp>div::after{animation-delay:-2.5s}
 .personality-scheme-three-object .glow{position:absolute;z-index:1;left:50%;top:50%;width:163.06px;height:163.06px;transform:translate(-50%,-50%)}
 .personality-scheme-three-object .object{position:absolute;z-index:2;object-fit:contain}
 .personality-scheme-three-object h3{min-width:100%;margin:0;font-size:13px;font-weight:500;line-height:normal;white-space:nowrap}
@@ -352,6 +355,7 @@ button{font:inherit}
   .personality-book-dialog-layer.is-open .personality-book-dialog-object .item,
   .personality-book-dialog-layer.is-open .personality-book-dialog-object .glow,
   .personality-book-dialog-object::after,
+  .personality-report-demo[data-scheme="3"] .personality-scheme-three-object>div::after,
   .personality-report-demo[data-scheme="3"] .personality-scheme-three-object .object,
   .personality-report-demo[data-scheme="3"] .personality-scheme-three-object .glow,
   .personality-summary-dialog-layer.is-open .personality-summary-object>div::after{animation:none}
