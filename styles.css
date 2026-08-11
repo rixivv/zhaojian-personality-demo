@@ -88,6 +88,7 @@ button{font:inherit}
 .personality-book-dialog-object .spark{position:absolute}
 .personality-book-dialog-object .spark-a{left:90.64px;top:19.59px;width:6.87px;height:6.87px}
 .personality-book-dialog-object .spark-b{left:7.75px;top:7.75px;width:6.87px;height:6.87px}
+.personality-book-dialog-object::after{content:"";position:absolute;z-index:3;left:4px;top:35px;width:1.5px;height:1.5px;border-radius:50%;background:rgba(255,231,205,.5);box-shadow:18px -25px 0 rgba(255,255,255,.34),91px -10px 0 rgba(255,221,185,.44),102px 24px 0 rgba(255,255,255,.3),9px 63px 0 rgba(255,221,185,.35),82px 73px 0 rgba(255,255,255,.28);animation:personality-book-dialog-stars 3.8s ease-in-out -.7s infinite}
 .personality-book-dialog-layer.is-open .personality-book-dialog-object .book{animation:personality-summary-float-book 3.4s ease-in-out infinite}
 .personality-book-dialog-layer.is-open .personality-book-dialog-object .glow{animation:personality-scheme-three-halo-breathe 3.4s ease-in-out infinite}
 .personality-book-dialog-label{position:absolute;left:72.5px;top:143.5px;display:flex;width:142px;flex-direction:column;align-items:center;gap:2px;text-align:center}
@@ -331,6 +332,10 @@ button{font:inherit}
   0%,100%{opacity:.5;filter:brightness(1.25) saturate(1.15) drop-shadow(0 0 10px rgba(255,184,104,.34));transform:translate(-50%,-50%) scale(.88)}
   50%{opacity:1;filter:brightness(2) saturate(1.35) drop-shadow(0 0 22px rgba(255,184,104,.68));transform:translate(-50%,-50%) scale(1.24)}
 }
+@keyframes personality-book-dialog-stars{
+  0%,100%{opacity:.28;transform:scale(.82)}
+  50%{opacity:.72;transform:scale(1.08)}
+}
 @keyframes personality-summary-ground-glow{
   0%,100%{opacity:.35;transform:translateX(-50%) scale(.78)}
   50%{opacity:1;transform:translateX(-50%) scale(1.18)}
@@ -340,6 +345,7 @@ button{font:inherit}
   .personality-summary-dialog-layer.is-open .personality-summary-object .glow,
   .personality-book-dialog-layer.is-open .personality-book-dialog-object .book,
   .personality-book-dialog-layer.is-open .personality-book-dialog-object .glow,
+  .personality-book-dialog-object::after,
   .personality-report-demo[data-scheme="3"] .personality-scheme-three-object .object,
   .personality-report-demo[data-scheme="3"] .personality-scheme-three-object .glow,
   .personality-summary-dialog-layer.is-open .personality-summary-object>div::after{animation:none}
