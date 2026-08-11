@@ -68,11 +68,35 @@ button{font:inherit}
 .personality-scheme-three-object h3 strong{color:#ffc477;font-weight:500}
 .personality-scheme-three-object p{margin:2px 0 0;color:rgba(255,255,255,.6);font-size:10px;font-weight:400;line-height:normal;white-space:nowrap}
 .personality-scheme-three-object--book{left:-16px;top:0}
+.personality-scheme-three-object--book{pointer-events:auto;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.personality-scheme-three-object--book:focus-visible{outline:1px solid rgba(255,255,255,.88);outline-offset:4px;border-radius:12px}
 .personality-scheme-three-object--book .object{inset:0;width:76px;height:76px}
 .personality-scheme-three-object--pen{left:162px;top:61px}
 .personality-scheme-three-object--pen .object{left:10.06px;top:10.06px;width:55.882px;height:55.882px;transform:scaleX(-1)}
 .personality-scheme-three-object--lamp{left:32px;top:144px;width:120px}
 .personality-scheme-three-object--lamp .object{left:4.22px;top:4.22px;width:67.556px;height:67.556px}
+.personality-book-dialog-layer{position:absolute;z-index:20;inset:0;display:flex;align-items:center;justify-content:center;visibility:hidden;opacity:0;transition:opacity .18s ease,visibility 0s linear .18s}
+.personality-book-dialog-layer.is-open{visibility:visible;opacity:1;transition:opacity .18s ease}
+.personality-book-dialog-backdrop{position:absolute;inset:0;padding:0;border:0;background:rgba(0,0,0,.4)}
+.personality-book-dialog{position:relative;width:287px;height:359px;overflow:hidden;border:.5px solid rgba(255,255,255,.1);border-radius:16px;background:rgba(255,255,255,.05);box-shadow:0 12px 36px rgba(0,0,0,.22);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);color:#fff;transform:scale(.96);transition:transform .18s ease}
+.personality-book-dialog-layer.is-open .personality-book-dialog{transform:scale(1)}
+.personality-book-dialog-close{position:absolute;z-index:3;right:11.5px;top:15.5px;display:flex;align-items:center;justify-content:center;width:28px;height:28px;padding:0;border:0;background:transparent;cursor:pointer}
+.personality-book-dialog-close img{display:block;width:10.5px;height:10.5px}
+.personality-book-dialog-object{position:absolute;left:72.5px;top:37.5px;width:100px;height:100px}
+.personality-book-dialog-object .glow{position:absolute;left:50%;top:50%;width:176.47px;height:176.47px;transform:translate(-50%,-50%)}
+.personality-book-dialog-object .book{position:absolute;inset:0;width:100px;height:100px;object-fit:cover}
+.personality-book-dialog-object .spark{position:absolute}
+.personality-book-dialog-object .spark-a{left:90.64px;top:19.59px;width:6.87px;height:6.87px}
+.personality-book-dialog-object .spark-b{left:7.75px;top:7.75px;width:6.87px;height:6.87px}
+.personality-book-dialog-label{position:absolute;left:72.5px;top:143.5px;display:flex;width:142px;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.personality-book-dialog-label h2{margin:0;font-size:13px;font-weight:500;line-height:normal}
+.personality-book-dialog-label h2 span{color:rgba(255,255,255,.8)}
+.personality-book-dialog-label h2 strong{color:#ffc477;font-weight:500}
+.personality-book-dialog-label p{margin:0;color:rgba(255,255,255,.6);font-size:10px;line-height:normal;white-space:nowrap}
+.personality-book-dialog-divider{position:absolute;left:27.5px;top:201.25px;width:231px;height:.5px}
+.personality-book-dialog-copy{position:absolute;left:27.5px;top:225.5px;width:231px;margin:0;color:rgba(255,255,255,.8);font-size:13px;font-weight:400;line-height:21px}
+.personality-book-dialog-copy strong{color:#ffc477;font-weight:600}
+.personality-book-dialog:focus{outline:none}
 .personality-report-hotspot{
   position:absolute;
   z-index:2;

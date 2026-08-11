@@ -31,7 +31,7 @@ html,body{margin:0;min-height:100%;background:#070910}
     <div class="personality-scheme-three-motion">
       <img class="personality-scheme-three-path personality-scheme-three-path--a" src="assets/summary-path-a.svg" alt="">
       <img class="personality-scheme-three-path personality-scheme-three-path--b" src="assets/summary-path-b.svg" alt="">
-      <article class="personality-scheme-three-object personality-scheme-three-object--book"><div><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-book.png" alt="未写完的书"></div><h3><span>未写完的</span><strong>书</strong></h3><p>你不急着定义，也不轻易离场</p></article>
+      <article class="personality-scheme-three-object personality-scheme-three-object--book" id="personalitySchemeThreeBook" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="personalityBookDialog"><div><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-book.png" alt="未写完的书"></div><h3><span>未写完的</span><strong>书</strong></h3><p>你不急着定义，也不轻易离场</p></article>
       <article class="personality-scheme-three-object personality-scheme-three-object--pen"><div><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-pen.png" alt="停在句点前的钢笔"></div><h3><span>停在句点前的</span><strong>钢笔</strong></h3><p>你慎重落笔，也保留余地</p></article>
       <article class="personality-scheme-three-object personality-scheme-three-object--lamp"><div><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-lamp.png" alt="深夜仍亮着的台灯"></div><h3><span>深夜仍亮着的</span><strong>台灯</strong></h3><p>你不说挽留，却愿意等候</p></article>
     </div>
@@ -39,6 +39,21 @@ html,body{margin:0;min-height:100%;background:#070910}
   <button class="personality-scheme-three-action personality-scheme-three-back" id="personalitySchemeThreeBack" type="button" aria-label="返回方案二"><span class="personality-scheme-three-back-icon" aria-hidden="true"><img src="assets/personality-summary-back-a.svg" alt=""><img src="assets/personality-summary-back-b.svg" alt=""></span><b>我的总结</b></button>
   <button class="personality-scheme-three-action personality-scheme-three-refresh" id="personalitySchemeThreeRefresh" type="button" aria-label="刷新完整总结"><img src="assets/personality-summary-refresh.svg" alt=""></button>
   <button class="personality-scheme-three-action personality-scheme-three-download" id="personalitySchemeThreeDownload" type="button" aria-label="下载完整总结"><img src="assets/personality-summary-download.svg" alt=""></button>
+  <div class="personality-book-dialog-layer" id="personalityBookDialog" aria-hidden="true">
+    <button class="personality-book-dialog-backdrop" type="button" aria-label="关闭书本详情"></button>
+    <section class="personality-book-dialog" role="dialog" aria-modal="true" aria-labelledby="personalityBookDialogTitle" tabindex="-1">
+      <button class="personality-book-dialog-close" type="button" aria-label="关闭书本详情"><img src="assets/personality-book-dialog-close.svg" alt=""></button>
+      <div class="personality-book-dialog-object" aria-hidden="true">
+        <img class="glow" src="assets/personality-book-dialog-glow.svg" alt="">
+        <img class="book" src="assets/summary-book.png" alt="">
+        <img class="spark spark-a" src="assets/personality-book-dialog-spark-a.svg" alt="">
+        <img class="spark spark-b" src="assets/personality-book-dialog-spark-b.svg" alt="">
+      </div>
+      <div class="personality-book-dialog-label"><h2 id="personalityBookDialogTitle"><span>未写完的</span><strong>书</strong></h2><p>你不急着定义，也不轻易离场</p></div>
+      <img class="personality-book-dialog-divider" src="assets/personality-book-dialog-divider.svg" alt="">
+      <p class="personality-book-dialog-copy">你和罗兰聊过 <strong>38</strong> 次，却很少催促一个答案。你们共同书写但未写完的书并非残缺，而是你愿意给关系时间，也相信真正重要的故事，值得慢慢发生。</p>
+    </section>
+  </div>
   <button class="personality-report-hotspot hotspot-top-left" type="button" aria-label="查看关系模式报告" data-report-hotspot="relationship"></button>
   <button class="personality-report-hotspot hotspot-top-right" type="button" aria-label="查看选择倾向报告" data-report-hotspot="choice"></button>
   <button class="personality-report-hotspot hotspot-bottom-left" type="button" aria-label="查看自我表达报告" data-report-hotspot="expression"></button>
@@ -125,6 +140,10 @@ html,body{margin:0;min-height:100%;background:#070910}
   const schemeThreeBack=document.getElementById('personalitySchemeThreeBack');
   const schemeThreeRefresh=document.getElementById('personalitySchemeThreeRefresh');
   const schemeThreeDownload=document.getElementById('personalitySchemeThreeDownload');
+  const schemeThreeBook=document.getElementById('personalitySchemeThreeBook');
+  const bookDialogLayer=document.getElementById('personalityBookDialog');
+  const bookDialog=bookDialogLayer?.querySelector('.personality-book-dialog');
+  const bookDialogClose=bookDialogLayer?.querySelector('.personality-book-dialog-close');
   const summaryDownloadToast=document.getElementById('personalitySummaryDownloadToast');
   let summaryDownloadToastTimer=0;
   const showSummaryToast=(message)=>{
@@ -196,6 +215,19 @@ html,body{margin:0;min-height:100%;background:#070910}
     summaryDialogLayer?.setAttribute('aria-hidden','true');
     summaryEntry?.setAttribute('aria-pressed','false');
   };
+  const openBookDialog=()=>{
+    if(!bookDialogLayer) return;
+    bookDialogLayer.classList.add('is-open');
+    bookDialogLayer.setAttribute('aria-hidden','false');
+    requestAnimationFrame(()=>bookDialog?.focus());
+  };
+  const closeBookDialog=()=>{
+    if(!bookDialogLayer) return;
+    const wasOpen=bookDialogLayer.classList.contains('is-open');
+    bookDialogLayer.classList.remove('is-open');
+    bookDialogLayer.setAttribute('aria-hidden','true');
+    if(wasOpen&&demo?.getAttribute('data-scheme')==='3') schemeThreeBook?.focus();
+  };
   document.querySelectorAll('[data-report-hotspot]').forEach((hotspot)=>hotspot.addEventListener('click',()=>openReport(hotspot,hotspot.dataset.reportHotspot)));
   closeButtons.forEach((button)=>button.addEventListener('click',closeReport));
   document.querySelectorAll('[data-personality-scheme]').forEach((button)=>button.addEventListener('click',()=>{
@@ -209,6 +241,7 @@ html,body{margin:0;min-height:100%;background:#070910}
     document.querySelectorAll('[data-report-hotspot]').forEach((hotspot)=>hotspot.classList.remove('is-selected'));
     closeReport();
     closeSummary();
+    closeBookDialog();
   }));
   summaryEntry?.addEventListener('click',()=>{
     demo?.classList.add('is-summary-active');
@@ -238,6 +271,12 @@ html,body{margin:0;min-height:100%;background:#070910}
     showSummaryToast('图片已下载');
   });
   schemeThreeBack?.addEventListener('click',()=>document.querySelector('[data-personality-scheme="2"]')?.click());
+  schemeThreeBook?.addEventListener('click',openBookDialog);
+  schemeThreeBook?.addEventListener('keydown',(event)=>{
+    if(event.key==='Enter'||event.key===' '){event.preventDefault();openBookDialog();}
+  });
+  bookDialogClose?.addEventListener('click',closeBookDialog);
+  bookDialogLayer?.querySelector('.personality-book-dialog-backdrop')?.addEventListener('click',closeBookDialog);
   schemeThreeRefresh?.addEventListener('click',()=>showSummaryToast('暂未形成新的总结'));
   schemeThreeDownload?.addEventListener('click',()=>{
     const link=document.createElement('a');
@@ -249,7 +288,8 @@ html,body{margin:0;min-height:100%;background:#070910}
     showSummaryToast('图片已下载');
   });
   document.addEventListener('keydown',(event)=>{
-    if(event.key==='Escape'&&summaryDialogLayer?.classList.contains('is-open')) closeSummary();
+    if(event.key==='Escape'&&bookDialogLayer?.classList.contains('is-open')) closeBookDialog();
+    else if(event.key==='Escape'&&summaryDialogLayer?.classList.contains('is-open')) closeSummary();
     else if(event.key==='Escape'&&layer?.classList.contains('is-open')) closeReport();
   });
 })();
