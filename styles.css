@@ -31,14 +31,12 @@ button{font:inherit}
 .personality-report-demo[data-scheme="3"] .personality-summary-entry{display:none}
 .personality-scheme-three-page{position:absolute;z-index:1;left:50%;top:50%;display:none;width:375px;height:812px;overflow:hidden;color:#fff;transform:translate(-50%,-50%)}
 .personality-report-demo[data-scheme="3"] .personality-scheme-three-page{display:block}
-.personality-scheme-three-background{position:absolute;inset:0;background:url("assets/personality-summary-page-background.png") center/451px 812px no-repeat}
-.personality-scheme-three-background::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
-.personality-scheme-three-background::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,16,0) 44%,rgba(23,54,79,.58) 100%)}
+.personality-scheme-three-background{position:absolute;inset:0;background:url("assets/personality-summary-page-background.png") center/100% 100% no-repeat}
 .personality-scheme-three-status{position:absolute;left:0;top:0;width:375px;height:53px;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;font-size:15px;font-weight:600}
-.personality-scheme-three-status b{position:absolute;left:43px;top:18px;line-height:22px}
-.personality-scheme-three-status .cellular{position:absolute;right:70px;top:21px;font-size:7px;letter-spacing:1px;transform:rotate(-90deg)}
-.personality-scheme-three-status .wifi{position:absolute;right:49px;top:15px;font-size:21px;transform:rotate(180deg)}
-.personality-scheme-three-status .battery{position:absolute;right:32px;top:22px;width:18px;height:9px;border:1px solid rgba(255,255,255,.9);border-radius:3px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.86)}
+.personality-scheme-three-status b{position:absolute;left:48px;top:19px;font-size:17px;line-height:normal}
+.personality-scheme-three-status .cellular{position:absolute;left:268.35px;top:23.09px;width:18.3px;height:12px}
+.personality-scheme-three-status .wifi{position:absolute;left:293.97px;top:23.19px;width:16.35px;height:12.09px}
+.personality-scheme-three-status .battery{position:absolute;right:32.57px;top:22.6px;width:27.228px;height:13px}
 .personality-scheme-three-copy{position:absolute;left:28px;top:121px;width:319px}
 .personality-scheme-three-copy h2{margin:0;color:rgba(255,255,255,.9);font-size:20px;font-weight:500;line-height:22px}
 .personality-scheme-three-copy small{display:block;margin-top:4px;color:rgba(255,255,255,.9);font-size:10px;font-weight:400;line-height:normal}
@@ -49,7 +47,9 @@ button{font:inherit}
 .personality-scheme-three-action{position:absolute;z-index:5;display:none;align-items:center;padding:0;border:0;background:transparent;color:rgba(255,255,255,.9);cursor:pointer;-webkit-tap-highlight-color:transparent}
 .personality-report-demo[data-scheme="3"] .personality-scheme-three-action{display:block}
 .personality-scheme-three-back{left:12px;top:calc(50% - 353px);width:112px;height:48px;text-align:left}
-.personality-scheme-three-back span{display:inline-block;width:24px;font:300 32px/38px -apple-system,BlinkMacSystemFont,sans-serif;vertical-align:middle}
+.personality-scheme-three-back-icon{position:relative;display:inline-block;width:24px;height:24px;vertical-align:middle}
+.personality-scheme-three-back-icon img{position:absolute;left:7.75px;top:4.5px;width:7.5px;height:7.5px}
+.personality-scheme-three-back-icon img+img{top:12px;transform:rotate(-90deg)}
 .personality-scheme-three-back b{margin-left:12px;font-size:14px;font-weight:400;line-height:22px;vertical-align:middle}
 .personality-scheme-three-refresh{right:44px;top:calc(50% - 353px);width:40px;height:48px}
 .personality-scheme-three-download{right:4px;top:calc(50% - 353px);width:40px;height:48px}
