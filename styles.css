@@ -169,18 +169,19 @@ button{font:inherit}
 .personality-summary-download-icon img{position:absolute;left:.916px;top:.917px;width:14.086px;height:13.641px}
 .personality-summary-dialog__actions .personality-summary-dialog__close img{width:10.5px;height:10.5px}
 @keyframes personality-summary-refresh-turn{to{transform:rotate(180deg)}}
-.personality-summary-dialog>h2{position:absolute;left:16px;right:16px;top:55.5px;margin:0;color:rgba(255,255,255,.92);font-size:20px;font-weight:500;line-height:22px;text-align:center}
-.personality-summary-dialog__intro{position:absolute;left:16px;top:97.5px;width:319px}
-.personality-summary-dialog__intro small{display:block;margin-bottom:8px;color:rgba(255,255,255,.6);font-size:10px;line-height:normal}
-.personality-summary-dialog__intro p{margin:0;color:rgba(255,255,255,.9);font-size:13px;line-height:24px}
-.personality-summary-dialog__kicker{position:absolute;left:16px;top:235.5px;display:flex;align-items:center;gap:8px;width:319px;opacity:.7}
+.personality-summary-dialog>h2{position:absolute;left:15.5px;right:16.5px;top:52px;margin:0;color:rgba(255,255,255,.9);font-size:20px;font-weight:500;line-height:22px;text-align:left}
+.personality-summary-dialog__intro{position:absolute;left:15.5px;top:78px;width:319px}
+.personality-summary-dialog__intro small{display:block;margin-bottom:16px;color:rgba(255,255,255,.9);font-size:10px;font-weight:400;line-height:normal}
+.personality-summary-dialog__intro small strong,.personality-summary-dialog__intro p strong{color:#ffc477;font-weight:600}
+.personality-summary-dialog__intro p{margin:0;color:rgba(255,255,255,.8);font-size:13px;font-weight:300;line-height:22px}
+.personality-summary-dialog__kicker{position:absolute;left:15.5px;top:246.5px;display:flex;align-items:center;width:319px;opacity:.7}
 .personality-summary-dialog__kicker span{color:rgba(255,255,255,.9);font-size:10px;line-height:24px;white-space:nowrap}
 .personality-summary-dialog__kicker img{display:block;width:75px;height:1px}
-.personality-summary-story-map{position:absolute;left:41px;top:268.5px;width:269px;height:256px}
+.personality-summary-story-map{position:absolute;left:41px;top:270.5px;width:269px;height:256px}
 .personality-summary-story-map__path-a{position:absolute;left:92px;top:29.75px;width:106px;height:81.532px}
 .personality-summary-story-map__path-b{position:absolute;left:142px;top:177px;width:72px;height:55px}
 .personality-summary-object{position:absolute;display:flex;flex-direction:column;align-items:center;gap:6px;margin:0;text-align:center}
-.personality-summary-object>div{position:relative;width:72px;height:72px}
+.personality-summary-object>div{position:relative;width:76px;height:76px}
 .personality-summary-object>div::after{
   content:"";
   position:absolute;
@@ -197,14 +198,16 @@ button{font:inherit}
 }
 .personality-summary-object .glow{position:absolute;z-index:0;left:50%;top:50%;width:163.06px;height:163.06px;transform:translate(-50%,-50%)}
 .personality-summary-object .object{position:absolute;z-index:2;object-fit:contain}
-.personality-summary-object h3{min-width:100%;margin:0;color:rgba(255,255,255,.9);font-size:13px;font-weight:400;line-height:normal;white-space:nowrap}
+.personality-summary-object h3{min-width:100%;margin:0;font-size:13px;font-weight:500;line-height:normal;white-space:nowrap}
+.personality-summary-object h3 span{color:rgba(255,255,255,.8)}
+.personality-summary-object h3 strong{color:#ffc477;font-weight:500}
 .personality-summary-object p{margin:0;color:rgba(255,255,255,.6);font-size:10px;line-height:normal;white-space:nowrap}
 .personality-summary-object--book{left:0;top:0}
-.personality-summary-object--book .object{inset:0;width:72px;height:72px}
-.personality-summary-object--pen{left:139px;top:61px}
-.personality-summary-object--pen .object{left:9.53px;top:9.53px;width:52.941px;height:52.941px;transform:scaleX(-1)}
+.personality-summary-object--book .object{inset:0;width:76px;height:76px}
+.personality-summary-object--pen{left:148px;top:63px}
+.personality-summary-object--pen .object{left:10.06px;top:10.06px;width:55.882px;height:55.882px;transform:scaleX(-1)}
 .personality-summary-object--lamp{left:32px;top:144px;width:120px}
-.personality-summary-object--lamp .object{left:6.35px;top:6.35px;width:59.294px;height:59.294px}
+.personality-summary-object--lamp .object{left:4.22px;top:4.22px;width:67.556px;height:67.556px}
 .personality-summary-dialog-layer.is-open .personality-summary-object--book .object{
   animation:personality-summary-float-book 3.4s ease-in-out infinite;
 }
