@@ -32,26 +32,26 @@ html,body{margin:0;min-height:100%;background:#070910}
       <img class="personality-scheme-three-path personality-scheme-three-path--a" src="assets/summary-path-a.svg" alt="">
       <img class="personality-scheme-three-path personality-scheme-three-path--b" src="assets/summary-path-b.svg" alt="">
       <article class="personality-scheme-three-object personality-scheme-three-object--book" id="personalitySchemeThreeBook" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="personalityBookDialog"><div><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-book.png" alt="未写完的书"></div><h3><span>未写完的</span><strong>书</strong></h3><p>你不急着定义，也不轻易离场</p></article>
-      <article class="personality-scheme-three-object personality-scheme-three-object--pen"><div><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-pen.png" alt="停在句点前的钢笔"></div><h3><span>停在句点前的</span><strong>钢笔</strong></h3><p>你慎重落笔，也保留余地</p></article>
-      <article class="personality-scheme-three-object personality-scheme-three-object--lamp"><div><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-lamp.png" alt="深夜仍亮着的台灯"></div><h3><span>深夜仍亮着的</span><strong>台灯</strong></h3><p>你不说挽留，却愿意等候</p></article>
+      <article class="personality-scheme-three-object personality-scheme-three-object--pen" id="personalitySchemeThreePen" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="personalityBookDialog"><div><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-pen.png" alt="停在句点前的钢笔"></div><h3><span>停在句点前的</span><strong>钢笔</strong></h3><p>你慎重落笔，也保留余地</p></article>
+      <article class="personality-scheme-three-object personality-scheme-three-object--lamp" id="personalitySchemeThreeLamp" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="personalityBookDialog"><div><img class="glow" src="assets/summary-glow.svg" alt=""><img class="object" src="assets/summary-lamp.png" alt="深夜仍亮着的台灯"></div><h3><span>深夜仍亮着的</span><strong>台灯</strong></h3><p>你不说挽留，却愿意等候</p></article>
     </div>
   </div>
   <button class="personality-scheme-three-action personality-scheme-three-back" id="personalitySchemeThreeBack" type="button" aria-label="返回方案二"><span class="personality-scheme-three-back-icon" aria-hidden="true"><img src="assets/personality-summary-back-a.svg" alt=""><img src="assets/personality-summary-back-b.svg" alt=""></span><b>我的总结</b></button>
   <button class="personality-scheme-three-action personality-scheme-three-refresh" id="personalitySchemeThreeRefresh" type="button" aria-label="刷新完整总结"><img src="assets/personality-summary-refresh.svg" alt=""></button>
   <button class="personality-scheme-three-action personality-scheme-three-download" id="personalitySchemeThreeDownload" type="button" aria-label="下载完整总结"><img src="assets/personality-summary-download.svg" alt=""></button>
-  <div class="personality-book-dialog-layer" id="personalityBookDialog" aria-hidden="true">
-    <button class="personality-book-dialog-backdrop" type="button" aria-label="关闭书本详情"></button>
+  <div class="personality-book-dialog-layer" id="personalityBookDialog" data-item="book" aria-hidden="true">
+    <button class="personality-book-dialog-backdrop" type="button" aria-label="关闭物品详情"></button>
     <section class="personality-book-dialog" role="dialog" aria-modal="true" aria-labelledby="personalityBookDialogTitle" tabindex="-1">
-      <button class="personality-book-dialog-close" type="button" aria-label="关闭书本详情"><img src="assets/personality-book-dialog-close.svg" alt=""></button>
+      <button class="personality-book-dialog-close" type="button" aria-label="关闭物品详情"><img src="assets/personality-book-dialog-close.svg" alt=""></button>
       <div class="personality-book-dialog-object" aria-hidden="true">
         <img class="glow" src="assets/personality-book-dialog-glow.svg" alt="">
-        <img class="book" src="assets/summary-book.png" alt="">
+        <img class="item" id="personalityObjectDialogImage" src="assets/summary-book.png" alt="">
         <img class="spark spark-a" src="assets/personality-book-dialog-spark-a.svg" alt="">
         <img class="spark spark-b" src="assets/personality-book-dialog-spark-b.svg" alt="">
       </div>
-      <div class="personality-book-dialog-label"><h2 id="personalityBookDialogTitle"><span>未写完的</span><strong>书</strong></h2><p>你不急着定义，也不轻易离场</p></div>
+      <div class="personality-book-dialog-label"><h2 id="personalityBookDialogTitle"><span id="personalityObjectDialogTitlePrefix">未写完的</span><strong id="personalityObjectDialogTitleAccent">书</strong></h2><p id="personalityObjectDialogSubtitle">你不急着定义，也不轻易离场</p></div>
       <img class="personality-book-dialog-divider" src="assets/personality-book-dialog-divider.svg" alt="">
-      <p class="personality-book-dialog-copy">你和罗兰聊过 <strong>38</strong> 次，却很少催促一个答案。你们共同书写但未写完的书并非残缺，而是你愿意给关系时间，也相信真正重要的故事，值得慢慢发生。</p>
+      <div class="personality-book-dialog-copy" id="personalityObjectDialogCopy"><p>你和罗兰聊过 <strong>38</strong> 次，却很少催促一个答案。你们共同书写但未写完的书并非残缺，而是你愿意给关系时间，也相信真正重要的故事，值得慢慢发生。</p></div>
     </section>
   </div>
   <button class="personality-report-hotspot hotspot-top-left" type="button" aria-label="查看关系模式报告" data-report-hotspot="relationship"></button>
@@ -141,9 +141,16 @@ html,body{margin:0;min-height:100%;background:#070910}
   const schemeThreeRefresh=document.getElementById('personalitySchemeThreeRefresh');
   const schemeThreeDownload=document.getElementById('personalitySchemeThreeDownload');
   const schemeThreeBook=document.getElementById('personalitySchemeThreeBook');
+  const schemeThreePen=document.getElementById('personalitySchemeThreePen');
+  const schemeThreeLamp=document.getElementById('personalitySchemeThreeLamp');
   const bookDialogLayer=document.getElementById('personalityBookDialog');
   const bookDialog=bookDialogLayer?.querySelector('.personality-book-dialog');
   const bookDialogClose=bookDialogLayer?.querySelector('.personality-book-dialog-close');
+  const objectDialogImage=document.getElementById('personalityObjectDialogImage');
+  const objectDialogTitlePrefix=document.getElementById('personalityObjectDialogTitlePrefix');
+  const objectDialogTitleAccent=document.getElementById('personalityObjectDialogTitleAccent');
+  const objectDialogSubtitle=document.getElementById('personalityObjectDialogSubtitle');
+  const objectDialogCopy=document.getElementById('personalityObjectDialogCopy');
   const summaryDownloadToast=document.getElementById('personalitySummaryDownloadToast');
   let summaryDownloadToastTimer=0;
   const showSummaryToast=(message)=>{
@@ -215,8 +222,22 @@ html,body{margin:0;min-height:100%;background:#070910}
     summaryDialogLayer?.setAttribute('aria-hidden','true');
     summaryEntry?.setAttribute('aria-pressed','false');
   };
-  const openBookDialog=()=>{
-    if(!bookDialogLayer) return;
+  const objectDialogData={
+    book:{image:'assets/summary-book.png',alt:'未写完的书',prefix:'未写完的',accent:'书',subtitle:'你不急着定义，也不轻易离场',copy:'<p>你和罗兰聊过 <strong>38</strong> 次，却很少催促一个答案。你们共同书写但未写完的书并非残缺，而是你愿意给关系时间，也相信真正重要的故事，值得慢慢发生。</p>'},
+    pen:{image:'assets/summary-pen.png',alt:'停在句点前的钢笔',prefix:'停在句点前的',accent:'钢笔',subtitle:'你慎重落笔，也保留余地',copy:'<p>你曾在观景廊停留 <strong>47</strong> 分钟，没有追问，也没有轻易判断。</p><p>停笔不是犹豫，而是你看见复杂之后，仍愿意为真心保留余地。</p>'},
+    lamp:{image:'assets/summary-lamp.png',alt:'深夜仍亮着的台灯',prefix:'深夜仍亮着的',accent:'台灯',subtitle:'你不说挽留，却愿意等候',copy:'<p>你说“我有点 emo”后，雨下了 <strong>3</strong> 天；第 <strong>87</strong> 天，你聊到 <strong>02:17</strong>。</p><p>你很少把脆弱说得很响，却会珍惜陪伴，也愿意为在意的人等到很晚。</p>'}
+  };
+  let lastObjectTrigger=null;
+  const openObjectDialog=(type,trigger)=>{
+    const data=objectDialogData[type];
+    if(!bookDialogLayer||!data) return;
+    lastObjectTrigger=trigger;
+    bookDialogLayer.dataset.item=type;
+    if(objectDialogImage){objectDialogImage.src=data.image;objectDialogImage.alt=data.alt;}
+    if(objectDialogTitlePrefix) objectDialogTitlePrefix.textContent=data.prefix;
+    if(objectDialogTitleAccent) objectDialogTitleAccent.textContent=data.accent;
+    if(objectDialogSubtitle) objectDialogSubtitle.textContent=data.subtitle;
+    if(objectDialogCopy) objectDialogCopy.innerHTML=data.copy;
     bookDialogLayer.classList.add('is-open');
     bookDialogLayer.setAttribute('aria-hidden','false');
     requestAnimationFrame(()=>bookDialog?.focus());
@@ -226,7 +247,7 @@ html,body{margin:0;min-height:100%;background:#070910}
     const wasOpen=bookDialogLayer.classList.contains('is-open');
     bookDialogLayer.classList.remove('is-open');
     bookDialogLayer.setAttribute('aria-hidden','true');
-    if(wasOpen&&demo?.getAttribute('data-scheme')==='3') schemeThreeBook?.focus();
+    if(wasOpen&&demo?.getAttribute('data-scheme')==='3') lastObjectTrigger?.focus();
   };
   document.querySelectorAll('[data-report-hotspot]').forEach((hotspot)=>hotspot.addEventListener('click',()=>openReport(hotspot,hotspot.dataset.reportHotspot)));
   closeButtons.forEach((button)=>button.addEventListener('click',closeReport));
@@ -271,9 +292,11 @@ html,body{margin:0;min-height:100%;background:#070910}
     showSummaryToast('图片已下载');
   });
   schemeThreeBack?.addEventListener('click',()=>document.querySelector('[data-personality-scheme="2"]')?.click());
-  schemeThreeBook?.addEventListener('click',openBookDialog);
-  schemeThreeBook?.addEventListener('keydown',(event)=>{
-    if(event.key==='Enter'||event.key===' '){event.preventDefault();openBookDialog();}
+  [[schemeThreeBook,'book'],[schemeThreePen,'pen'],[schemeThreeLamp,'lamp']].forEach(([trigger,type])=>{
+    trigger?.addEventListener('click',()=>openObjectDialog(type,trigger));
+    trigger?.addEventListener('keydown',(event)=>{
+      if(event.key==='Enter'||event.key===' '){event.preventDefault();openObjectDialog(type,trigger);}
+    });
   });
   bookDialogClose?.addEventListener('click',closeBookDialog);
   bookDialogLayer?.querySelector('.personality-book-dialog-backdrop')?.addEventListener('click',closeBookDialog);
