@@ -163,6 +163,49 @@ html,body{margin:0;min-height:100%;background:#070910}
       summaryDownloadToastTimer=window.setTimeout(()=>summaryDownloadToast.classList.remove('is-visible'),1800);
     });
   };
+  const downloadImageFile=async(url,filename)=>{
+    let blob=null;
+    try{
+      const response=await fetch(url,{cache:'no-store'});
+      if(!response.ok) throw new Error(`Download failed: ${response.status}`);
+      blob=await response.blob();
+    }catch(error){
+      try{
+        blob=await new Promise((resolve,reject)=>{
+          const request=new XMLHttpRequest();
+          request.open('GET',url,true);
+          request.responseType='blob';
+          request.onload=()=>request.response?.size?resolve(request.response):reject(new Error('Empty image file'));
+          request.onerror=()=>reject(new Error('Unable to read local image file'));
+          request.send();
+        });
+      }catch(requestError){
+        blob=await new Promise((resolve,reject)=>{
+          const image=new Image();
+          image.onload=()=>{
+            try{
+              const canvas=document.createElement('canvas');
+              canvas.width=image.naturalWidth;
+              canvas.height=image.naturalHeight;
+              canvas.getContext('2d')?.drawImage(image,0,0);
+              canvas.toBlob((result)=>result?resolve(result):reject(new Error('Unable to create image file')),'image/png');
+            }catch(canvasError){reject(canvasError);}
+          };
+          image.onerror=()=>reject(new Error('Unable to load image file'));
+          image.src=url;
+        });
+      }
+    }
+    const objectUrl=URL.createObjectURL(blob);
+    const link=document.createElement('a');
+    link.href=objectUrl;
+    link.download=filename;
+    link.style.display='none';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.setTimeout(()=>URL.revokeObjectURL(objectUrl),1000);
+  };
   const closeButtons=layer?.querySelectorAll('.personality-report-backdrop,.personality-report-dialog__close')||[];
   const reports={
     relationship:{
@@ -301,14 +344,13 @@ html,body{margin:0;min-height:100%;background:#070910}
   bookDialogClose?.addEventListener('click',closeBookDialog);
   bookDialogLayer?.querySelector('.personality-book-dialog-backdrop')?.addEventListener('click',closeBookDialog);
   schemeThreeRefresh?.addEventListener('click',()=>showSummaryToast('暂未形成新的总结'));
-  schemeThreeDownload?.addEventListener('click',()=>{
-    const link=document.createElement('a');
-    link.href='assets/personality-summary-download.png';
-    link.download='照见首页-完整总结.png';
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    showSummaryToast('图片已下载');
+  schemeThreeDownload?.addEventListener('click',async()=>{
+    try{
+      await downloadImageFile('assets/personality-summary-download.png','照见首页-完整总结.png');
+      showSummaryToast('图片已下载');
+    }catch(error){
+      showSummaryToast('下载失败，请重试');
+    }
   });
   document.addEventListener('keydown',(event)=>{
     if(event.key==='Escape'&&bookDialogLayer?.classList.contains('is-open')) closeBookDialog();
