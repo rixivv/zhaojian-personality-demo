@@ -32,10 +32,22 @@ button{font:inherit}
 .personality-report-demo[data-scheme="3"] .personality-summary-entry{display:none}
 .personality-scheme-three-action{position:absolute;z-index:5;display:none;padding:0;border:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .personality-report-demo[data-scheme="3"] .personality-scheme-three-action{display:block}
-.personality-scheme-three-back{left:0;top:53px;width:48px;height:48px}
-.personality-scheme-three-refresh{right:44px;top:53px;width:40px;height:48px}
-.personality-scheme-three-download{right:4px;top:53px;width:40px;height:48px}
+.personality-scheme-three-back{left:0;top:calc(50% - 353px);width:48px;height:48px}
+.personality-scheme-three-refresh{right:44px;top:calc(50% - 353px);width:40px;height:48px}
+.personality-scheme-three-download{right:4px;top:calc(50% - 353px);width:40px;height:48px}
 .personality-scheme-three-action:focus-visible{outline:1px solid rgba(255,255,255,.88);outline-offset:-8px;border-radius:16px}
+.personality-scheme-three-motion{position:absolute;z-index:4;left:50%;top:50%;display:none;width:375px;height:812px;pointer-events:none;transform:translate(-50%,-50%)}
+.personality-report-demo[data-scheme="3"] .personality-scheme-three-motion{display:block}
+.personality-scheme-three-object{position:absolute;width:76px;height:76px}
+.personality-scheme-three-object .eraser{position:absolute;z-index:0;inset:-12px;border-radius:50%;background:rgba(20,24,32,.12);backdrop-filter:blur(20px) brightness(.72);-webkit-backdrop-filter:blur(20px) brightness(.72)}
+.personality-scheme-three-object .glow{position:absolute;z-index:1;left:50%;top:50%;width:163.06px;height:163.06px;transform:translate(-50%,-50%)}
+.personality-scheme-three-object .object{position:absolute;z-index:2;object-fit:contain}
+.personality-scheme-three-object--book{left:36px;top:454px}
+.personality-scheme-three-object--book .object{inset:0;width:76px;height:76px}
+.personality-scheme-three-object--pen{left:214px;top:515px}
+.personality-scheme-three-object--pen .object{left:10.06px;top:10.06px;width:55.882px;height:55.882px;transform:scaleX(-1)}
+.personality-scheme-three-object--lamp{left:84px;top:598px}
+.personality-scheme-three-object--lamp .object{left:4.22px;top:4.22px;width:67.556px;height:67.556px}
 .personality-report-hotspot{
   position:absolute;
   z-index:2;
@@ -219,22 +231,28 @@ button{font:inherit}
 .personality-summary-object--pen .object{left:10.06px;top:10.06px;width:55.882px;height:55.882px;transform:scaleX(-1)}
 .personality-summary-object--lamp{left:32px;top:144px;width:120px}
 .personality-summary-object--lamp .object{left:4.22px;top:4.22px;width:67.556px;height:67.556px}
-.personality-summary-dialog-layer.is-open .personality-summary-object--book .object{
+.personality-summary-dialog-layer.is-open .personality-summary-object--book .object,
+.personality-report-demo[data-scheme="3"] .personality-scheme-three-object--book .object{
   animation:personality-summary-float-book 3.4s ease-in-out infinite;
 }
-.personality-summary-dialog-layer.is-open .personality-summary-object--pen .object{
+.personality-summary-dialog-layer.is-open .personality-summary-object--pen .object,
+.personality-report-demo[data-scheme="3"] .personality-scheme-three-object--pen .object{
   animation:personality-summary-float-pen 3.8s ease-in-out -.9s infinite;
 }
-.personality-summary-dialog-layer.is-open .personality-summary-object--lamp .object{
+.personality-summary-dialog-layer.is-open .personality-summary-object--lamp .object,
+.personality-report-demo[data-scheme="3"] .personality-scheme-three-object--lamp .object{
   animation:personality-summary-float-lamp 3.1s ease-in-out -1.7s infinite;
 }
-.personality-summary-dialog-layer.is-open .personality-summary-object .glow{
+.personality-summary-dialog-layer.is-open .personality-summary-object .glow,
+.personality-report-demo[data-scheme="3"] .personality-scheme-three-object .glow{
   animation:personality-summary-halo-breathe 3.4s ease-in-out infinite;
 }
-.personality-summary-dialog-layer.is-open .personality-summary-object--pen .glow{
+.personality-summary-dialog-layer.is-open .personality-summary-object--pen .glow,
+.personality-report-demo[data-scheme="3"] .personality-scheme-three-object--pen .glow{
   animation-delay:-.9s;
 }
-.personality-summary-dialog-layer.is-open .personality-summary-object--lamp .glow{
+.personality-summary-dialog-layer.is-open .personality-summary-object--lamp .glow,
+.personality-report-demo[data-scheme="3"] .personality-scheme-three-object--lamp .glow{
   animation-delay:-1.7s;
 }
 .personality-summary-dialog-layer.is-open .personality-summary-object>div::after{
@@ -263,6 +281,8 @@ button{font:inherit}
 @media (prefers-reduced-motion:reduce){
   .personality-summary-dialog-layer.is-open .personality-summary-object .object,
   .personality-summary-dialog-layer.is-open .personality-summary-object .glow,
+  .personality-report-demo[data-scheme="3"] .personality-scheme-three-object .object,
+  .personality-report-demo[data-scheme="3"] .personality-scheme-three-object .glow,
   .personality-summary-dialog-layer.is-open .personality-summary-object>div::after{animation:none}
 }
 .personality-report-hotspot:focus-visible{
