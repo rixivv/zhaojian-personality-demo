@@ -206,35 +206,49 @@ button{font:inherit}
 .personality-summary-object--lamp{left:32px;top:144px;width:120px}
 .personality-summary-object--lamp .object{left:6.35px;top:6.35px;width:59.294px;height:59.294px}
 .personality-summary-dialog-layer.is-open .personality-summary-object--book .object{
-  animation:personality-summary-float-book 3.8s ease-in-out infinite;
+  animation:personality-summary-float-book 3.4s ease-in-out infinite;
 }
 .personality-summary-dialog-layer.is-open .personality-summary-object--pen .object{
-  animation:personality-summary-float-pen 4.2s ease-in-out -.9s infinite;
+  animation:personality-summary-float-pen 3.8s ease-in-out -.9s infinite;
 }
 .personality-summary-dialog-layer.is-open .personality-summary-object--lamp .object{
-  animation:personality-summary-float-lamp 3.5s ease-in-out -1.7s infinite;
+  animation:personality-summary-float-lamp 3.1s ease-in-out -1.7s infinite;
+}
+.personality-summary-dialog-layer.is-open .personality-summary-object .glow{
+  animation:personality-summary-halo-breathe 3.4s ease-in-out infinite;
+}
+.personality-summary-dialog-layer.is-open .personality-summary-object--pen .glow{
+  animation-delay:-.9s;
+}
+.personality-summary-dialog-layer.is-open .personality-summary-object--lamp .glow{
+  animation-delay:-1.7s;
 }
 .personality-summary-dialog-layer.is-open .personality-summary-object>div::after{
-  animation:personality-summary-ground-glow 3.8s ease-in-out infinite;
+  animation:personality-summary-ground-glow 3.4s ease-in-out infinite;
 }
 @keyframes personality-summary-float-book{
   0%,100%{transform:translate3d(0,0,0) rotate(-1deg)}
-  50%{transform:translate3d(0,-5px,0) rotate(1.5deg)}
+  50%{transform:translate3d(0,-8px,0) rotate(2deg)}
 }
 @keyframes personality-summary-float-pen{
   0%,100%{transform:translate3d(0,0,0) scaleX(-1) rotate(-1deg)}
-  50%{transform:translate3d(0,-4px,0) scaleX(-1) rotate(2deg)}
+  50%{transform:translate3d(0,-7px,0) scaleX(-1) rotate(2.5deg)}
 }
 @keyframes personality-summary-float-lamp{
   0%,100%{transform:translate3d(0,0,0) rotate(.5deg)}
-  50%{transform:translate3d(0,-4px,0) rotate(-1.5deg)}
+  50%{transform:translate3d(0,-7px,0) rotate(-2deg)}
+}
+@keyframes personality-summary-halo-breathe{
+  0%,100%{opacity:.38;transform:translate(-50%,-50%) scale(.82)}
+  50%{opacity:1;transform:translate(-50%,-50%) scale(1.14)}
 }
 @keyframes personality-summary-ground-glow{
-  0%,100%{opacity:.62;transform:translateX(-50%) scale(.86)}
-  50%{opacity:1;transform:translateX(-50%) scale(1.08)}
+  0%,100%{opacity:.35;transform:translateX(-50%) scale(.78)}
+  50%{opacity:1;transform:translateX(-50%) scale(1.18)}
 }
 @media (prefers-reduced-motion:reduce){
   .personality-summary-dialog-layer.is-open .personality-summary-object .object,
+  .personality-summary-dialog-layer.is-open .personality-summary-object .glow,
   .personality-summary-dialog-layer.is-open .personality-summary-object>div::after{animation:none}
 }
 .personality-report-hotspot:focus-visible{
