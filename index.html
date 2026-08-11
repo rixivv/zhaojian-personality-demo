@@ -6,6 +6,7 @@
 <title>Livo · 照见我 Demo</title>
 <meta name="theme-color" content="#070910">
 <link rel="preload" href="assets/personality-report-static.png" as="image" fetchpriority="high">
+<link rel="preload" href="assets/personality-report-scheme-3.png" as="image">
 <style>
 html,body{margin:0;min-height:100%;background:#070910}
 </style>
@@ -15,6 +16,10 @@ html,body{margin:0;min-height:100%;background:#070910}
 <section class="personality-report-demo" aria-label="关于我的人格测试报告">
   <img class="personality-report-demo__screen personality-report-demo__screen--one" src="assets/personality-report-static.png" alt="照见我人格报告方案一">
   <img class="personality-report-demo__screen personality-report-demo__screen--two" src="assets/personality-report-scheme-2.png" alt="照见我人格报告方案二">
+  <img class="personality-report-demo__screen personality-report-demo__screen--three" src="assets/personality-report-scheme-3.png" alt="照见我完整总结二级页方案三">
+  <button class="personality-scheme-three-action personality-scheme-three-back" id="personalitySchemeThreeBack" type="button" aria-label="返回方案二"></button>
+  <button class="personality-scheme-three-action personality-scheme-three-refresh" id="personalitySchemeThreeRefresh" type="button" aria-label="刷新完整总结"></button>
+  <button class="personality-scheme-three-action personality-scheme-three-download" id="personalitySchemeThreeDownload" type="button" aria-label="下载完整总结"></button>
   <button class="personality-report-hotspot hotspot-top-left" type="button" aria-label="查看关系模式报告" data-report-hotspot="relationship"></button>
   <button class="personality-report-hotspot hotspot-top-right" type="button" aria-label="查看选择倾向报告" data-report-hotspot="choice"></button>
   <button class="personality-report-hotspot hotspot-bottom-left" type="button" aria-label="查看自我表达报告" data-report-hotspot="expression"></button>
@@ -80,6 +85,7 @@ html,body{margin:0;min-height:100%;background:#070910}
   <div class="personality-scheme-console__options" role="group" aria-label="选择方案">
     <button class="is-active" type="button" data-personality-scheme="1"><b>方案一</b><strong>多维人格分析</strong><span>从选择倾向、情感共鸣、关系模式与自我表达四个维度，结合用户在故事中的真实选择，形成完整的人格分析报告。</span></button>
     <button type="button" data-personality-scheme="2"><b>方案二</b><strong>人格特质提炼</strong><span>结合当前故事内容，从用户的真实行为中提炼核心心理判断，再选取能够承载这一判断的故事物件，生成更凝练、更具象的人格总结。</span></button>
+    <button type="button" data-personality-scheme="3"><b>方案三</b><strong>完整总结二级页</strong><span>进入独立二级页，完整呈现关键数据、人格叙事与故事物件总结。</span></button>
   </div>
 </aside>
 <script src="assets/personality-summary-card-data.js"></script>
@@ -97,6 +103,9 @@ html,body{margin:0;min-height:100%;background:#070910}
   const summaryDialogClose=summaryDialogLayer?.querySelector('.personality-summary-dialog__close');
   const summaryRefresh=document.getElementById('personalitySummaryRefresh');
   const summaryDownload=document.getElementById('personalitySummaryDownload');
+  const schemeThreeBack=document.getElementById('personalitySchemeThreeBack');
+  const schemeThreeRefresh=document.getElementById('personalitySchemeThreeRefresh');
+  const schemeThreeDownload=document.getElementById('personalitySchemeThreeDownload');
   const summaryDownloadToast=document.getElementById('personalitySummaryDownloadToast');
   let summaryDownloadToastTimer=0;
   const showSummaryToast=(message)=>{
@@ -209,6 +218,9 @@ html,body{margin:0;min-height:100%;background:#070910}
     link.remove();
     showSummaryToast('图片已下载');
   });
+  schemeThreeBack?.addEventListener('click',()=>document.querySelector('[data-personality-scheme="2"]')?.click());
+  schemeThreeRefresh?.addEventListener('click',()=>showSummaryToast('暂未形成新的总结'));
+  schemeThreeDownload?.addEventListener('click',()=>summaryDownload?.click());
   document.addEventListener('keydown',(event)=>{
     if(event.key==='Escape'&&summaryDialogLayer?.classList.contains('is-open')) closeSummary();
     else if(event.key==='Escape'&&layer?.classList.contains('is-open')) closeReport();
