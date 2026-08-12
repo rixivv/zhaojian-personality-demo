@@ -41,7 +41,7 @@ button{font:inherit}
 .personality-scheme-three-copy h2{margin:0;color:#fff;opacity:1;font-size:20px;font-weight:500;line-height:22px}
 .personality-scheme-three-copy small{display:block;margin-top:4px;color:rgba(255,255,255,.9);font-size:10px;font-weight:400;line-height:normal}
 .personality-scheme-three-copy strong{color:#ffc477;font-weight:600}
-.personality-scheme-three-paragraphs{display:flex;flex-direction:column;gap:14px;margin-top:24px;color:rgba(255,255,255,.8);font-size:13px;font-weight:300;line-height:22px}
+.personality-scheme-three-paragraphs{display:flex;flex-direction:column;gap:14px;margin-top:24px;color:rgba(255,255,255,.8);font-family:"PingFang SC",sans-serif;font-size:13px;font-weight:300;line-height:22px}
 .personality-scheme-three-paragraphs p{margin:0}
 .personality-scheme-three-kicker{position:absolute;left:27px;top:431px;color:rgba(255,255,255,.6);font-size:10px;font-weight:400;line-height:normal;opacity:.7}
 .personality-scheme-three-action{position:absolute;z-index:5;display:none;align-items:center;padding:0;border:0;background:transparent;color:rgba(255,255,255,.9);cursor:pointer;-webkit-tap-highlight-color:transparent}
